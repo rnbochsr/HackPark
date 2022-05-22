@@ -1,0 +1,137 @@
+root@kali:~# dirb http://10.10.113.96 /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -r -o dirb-top2.scan
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb-top2.scan
+START_TIME: Sun May 22 01:49:16 2022
+URL_BASE: http://10.10.113.96/
+WORDLIST_FILES: /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
+OPTION: Not Recursive
+
+-----------------
+
+GENERATED WORDS: 87568                                                         
+
+---- Scanning URL: http://10.10.113.96/ ----
++ http://10.10.113.96/contact (CODE:200|SIZE:13232)                                     
++ http://10.10.113.96/search (CODE:200|SIZE:8394)                                       
++ http://10.10.113.96/blog (CODE:500|SIZE:1208)                                         
++ http://10.10.113.96/archives (CODE:200|SIZE:8313)                                     
++ http://10.10.113.96/archive (CODE:200|SIZE:8312)                                      
+==> DIRECTORY: http://10.10.113.96/content/                                             
++ http://10.10.113.96/contactus (CODE:200|SIZE:13234)                                   
++ http://10.10.113.96/contacts (CODE:200|SIZE:13233)                                    
++ http://10.10.113.96/contact_us (CODE:200|SIZE:13235)                                  
++ http://10.10.113.96/admin (CODE:302|SIZE:172)                                         
+==> DIRECTORY: http://10.10.113.96/scripts/                                             
+==> DIRECTORY: http://10.10.113.96/account/                                             
++ http://10.10.113.96/Search (CODE:200|SIZE:8394)                                       
++ http://10.10.113.96/Contact (CODE:200|SIZE:13232)                                     
++ http://10.10.113.96/contact-us (CODE:200|SIZE:13235)                                  
++ http://10.10.113.96/ContactUs (CODE:200|SIZE:13234)                                   
+==> DIRECTORY: http://10.10.113.96/custom/                                              
+==> DIRECTORY: http://10.10.113.96/Content/                                             
++ http://10.10.113.96/contactUs (CODE:200|SIZE:13234)                                   
++ http://10.10.113.96/Blog (CODE:500|SIZE:1208)                                         
++ http://10.10.113.96/Archive (CODE:200|SIZE:8312)                                      
++ http://10.10.113.96/contactinfo (CODE:200|SIZE:13236)                                 
++ http://10.10.113.96/setup (CODE:302|SIZE:174)                                         
+==> DIRECTORY: http://10.10.113.96/fonts/                                               
++ http://10.10.113.96/contact_off (CODE:200|SIZE:13236)                                 
++ http://10.10.113.96/Contact_Us (CODE:200|SIZE:13235)                                  
++ http://10.10.113.96/Contacts (CODE:200|SIZE:13233)                                    
++ http://10.10.113.96/SearchResults (CODE:200|SIZE:8401)                                
++ http://10.10.113.96/%20 (CODE:500|SIZE:1763)                                          
++ http://10.10.113.96/searchresults (CODE:200|SIZE:8401)                                
++ http://10.10.113.96/Archives (CODE:200|SIZE:8313)                                     
+==> DIRECTORY: http://10.10.113.96/Scripts/                                             
++ http://10.10.113.96/search_form (CODE:200|SIZE:8399)                                  
++ http://10.10.113.96/searchresultsbrief (CODE:200|SIZE:8406)                           
++ http://10.10.113.96/search2 (CODE:200|SIZE:8395)                                      
++ http://10.10.113.96/searchtips (CODE:200|SIZE:8398)                                   
+==> DIRECTORY: http://10.10.113.96/Account/                                             
++ http://10.10.113.96/contact_form (CODE:200|SIZE:13237)                                
+==> DIRECTORY: http://10.10.113.96/Fonts/                                               
++ http://10.10.113.96/contact_information (CODE:200|SIZE:13244)                         
++ http://10.10.113.96/archive_query (CODE:200|SIZE:8318)                                
++ http://10.10.113.96/Admin (CODE:302|SIZE:172)                                         
++ http://10.10.113.96/searching (CODE:200|SIZE:8397)                                    
++ http://10.10.113.96/search-engines (CODE:200|SIZE:8402)                               
++ http://10.10.113.96/contactform (CODE:200|SIZE:13236)                                 
++ http://10.10.113.96/contacto (CODE:200|SIZE:13233)                                    
++ http://10.10.113.96/search_left (CODE:200|SIZE:8399)                                  
++ http://10.10.113.96/search_results (CODE:200|SIZE:8402)                               
++ http://10.10.113.96/search_tips (CODE:200|SIZE:8399)                                  
++ http://10.10.113.96/searchengine (CODE:200|SIZE:8400)                                 
++ http://10.10.113.96/contact-info (CODE:200|SIZE:13237)                                
++ http://10.10.113.96/contact_sales (CODE:200|SIZE:13238)                               
++ http://10.10.113.96/searchbutton (CODE:200|SIZE:8400)                                 
++ http://10.10.113.96/contact1 (CODE:200|SIZE:13233)                                    
++ http://10.10.113.96/search_off (CODE:200|SIZE:8398)                                   
++ http://10.10.113.96/searchContent (CODE:200|SIZE:8401)                                
++ http://10.10.113.96/Contact-Us (CODE:200|SIZE:13235)                                  
++ http://10.10.113.96/search_engines (CODE:200|SIZE:8402)                               
++ http://10.10.113.96/contacting (CODE:200|SIZE:13235)                                  
++ http://10.10.113.96/searchengines (CODE:200|SIZE:8401)                                
++ http://10.10.113.96/search1 (CODE:200|SIZE:8395)                                      
++ http://10.10.113.96/search_right (CODE:200|SIZE:8400)                                 
++ http://10.10.113.96/search_help (CODE:200|SIZE:8399)                                  
++ http://10.10.113.96/search_engine (CODE:200|SIZE:8401)                                
++ http://10.10.113.96/contact2 (CODE:200|SIZE:13233)                                    
++ http://10.10.113.96/Setup (CODE:302|SIZE:174)                                         
++ http://10.10.113.96/SearchForm (CODE:200|SIZE:8398)                                   
++ http://10.10.113.96/searchhelp (CODE:200|SIZE:8398)                                   
++ http://10.10.113.96/search_close (CODE:200|SIZE:8400)                                 
++ http://10.10.113.96/contact-me (CODE:200|SIZE:13235)                                  
++ http://10.10.113.96/search_icon (CODE:200|SIZE:8399)                                  
++ http://10.10.113.96/archives2 (CODE:200|SIZE:8314)                                    
++ http://10.10.113.96/search-new (CODE:200|SIZE:8398)                                   
++ http://10.10.113.96/searches (CODE:200|SIZE:8396)                                     
++ http://10.10.113.96/contact_info (CODE:200|SIZE:13237)                                
++ http://10.10.113.96/SearchNav (CODE:200|SIZE:8397)                                    
++ http://10.10.113.96/search3 (CODE:200|SIZE:8395)                                      
++ http://10.10.113.96/contactus_off (CODE:200|SIZE:13238)                               
++ http://10.10.113.96/archived (CODE:200|SIZE:8313)                                     
++ http://10.10.113.96/searchbox (CODE:200|SIZE:8397)                                    
++ http://10.10.113.96/search_btn (CODE:200|SIZE:8398)                                   
++ http://10.10.113.96/search_result (CODE:200|SIZE:8401)                                
++ http://10.10.113.96/Searching (CODE:200|SIZE:8397)                                    
++ http://10.10.113.96/archive1 (CODE:200|SIZE:8313)                                     
++ http://10.10.113.96/Search-Tools (CODE:200|SIZE:8400)                                 
++ http://10.10.113.96/search-top (CODE:200|SIZE:8398)                                   
++ http://10.10.113.96/searchtop (CODE:200|SIZE:8397)                                    
++ http://10.10.113.96/search_adv (CODE:200|SIZE:8398)                                   
++ http://10.10.113.96/searchday (CODE:200|SIZE:8397)                                    
++ http://10.10.113.96/con (CODE:500|SIZE:1763)                                          
++ http://10.10.113.96/search_header (CODE:200|SIZE:8401)                                
++ http://10.10.113.96/contact-off (CODE:200|SIZE:13236)                                 
++ http://10.10.113.96/searchform (CODE:200|SIZE:8398)                                   
++ http://10.10.113.96/search_attrib (CODE:200|SIZE:8401)                                
++ http://10.10.113.96/search!default (CODE:200|SIZE:8402)                               
++ http://10.10.113.96/SearchProduct (CODE:200|SIZE:8401)                                
++ http://10.10.113.96/contactgnw (CODE:200|SIZE:13235)                                  
++ http://10.10.113.96/SEARCH (CODE:200|SIZE:8394)                                       
++ http://10.10.113.96/Contact_us (CODE:200|SIZE:13235)                                  
++ http://10.10.113.96/search_2 (CODE:200|SIZE:8396)                                     
+==> DIRECTORY: http://10.10.113.96/Custom/                                              
++ http://10.10.113.96/search_view (CODE:200|SIZE:8399)                                  
++ http://10.10.113.96/search_top (CODE:200|SIZE:8398)                                   
++ http://10.10.113.96/searchbar (CODE:200|SIZE:8397)                                    
++ http://10.10.113.96/search_advanced (CODE:200|SIZE:8403)                              
++ http://10.10.113.96/Search_Engines (CODE:200|SIZE:8402)                               
++ http://10.10.113.96/search_getprod (CODE:200|SIZE:8402)                               
++ http://10.10.113.96/searchproduct (CODE:200|SIZE:8401)                                
++ http://10.10.113.96/search_windows (CODE:200|SIZE:8402)                               
++ http://10.10.113.96/search_1 (CODE:200|SIZE:8396)                                     
++ http://10.10.113.96/CONTACT (CODE:200|SIZE:13232)                                     
+(!) WARNING: Too many responses for this directory seem to be FOUND.                    
+    (Something is going wrong - Try Other Scan Mode)
+    (Use mode '-w' if you want to scan it anyway)
+                                                                               
+-----------------
+END_TIME: Sun May 22 01:51:13 2022
+DOWNLOADED: 22406 - FOUND: 101
+

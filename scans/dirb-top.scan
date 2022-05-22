@@ -1,0 +1,69 @@
+root@kali:~# dirb http://10.10.113.96 /usr/share/wordlists/dirb/common.txt -r -o dirb-top.scan
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb-top.scan
+START_TIME: Sun May 22 01:30:15 2022
+URL_BASE: http://10.10.113.96/
+WORDLIST_FILES: /usr/share/wordlists/dirb/common.txt
+OPTION: Not Recursive
+
+-----------------
+
+GENERATED WORDS: 4612                                                          
+
+---- Scanning URL: http://10.10.113.96/ ----
+==> DIRECTORY: http://10.10.113.96/account/                                             
++ http://10.10.113.96/admin (CODE:302|SIZE:172)                                         
++ http://10.10.113.96/Admin (CODE:302|SIZE:172)                                         
++ http://10.10.113.96/ADMIN (CODE:302|SIZE:172)                                         
++ http://10.10.113.96/archive (CODE:200|SIZE:8312)                                      
++ http://10.10.113.96/Archive (CODE:200|SIZE:8312)                                      
++ http://10.10.113.96/archives (CODE:200|SIZE:8313)                                     
+==> DIRECTORY: http://10.10.113.96/aspnet_client/                                       
++ http://10.10.113.96/aux (CODE:500|SIZE:1763)                                          
++ http://10.10.113.96/blog (CODE:500|SIZE:1208)                                         
++ http://10.10.113.96/Blog (CODE:500|SIZE:1208)                                         
++ http://10.10.113.96/com1 (CODE:500|SIZE:1763)                                         
++ http://10.10.113.96/com2 (CODE:500|SIZE:1763)                                         
++ http://10.10.113.96/com3 (CODE:500|SIZE:1763)                                         
++ http://10.10.113.96/con (CODE:500|SIZE:1763)                                          
++ http://10.10.113.96/contact (CODE:200|SIZE:13232)                                     
++ http://10.10.113.96/Contact (CODE:200|SIZE:13232)                                     
++ http://10.10.113.96/contact_bean (CODE:200|SIZE:13237)                                
++ http://10.10.113.96/contact_us (CODE:200|SIZE:13235)                                  
++ http://10.10.113.96/contact-form (CODE:200|SIZE:13237)                                
++ http://10.10.113.96/contactinfo (CODE:200|SIZE:13236)                                 
++ http://10.10.113.96/contacto (CODE:200|SIZE:13233)                                    
++ http://10.10.113.96/contacts (CODE:200|SIZE:13233)                                    
++ http://10.10.113.96/contactus (CODE:200|SIZE:13234)                                   
++ http://10.10.113.96/contact-us (CODE:200|SIZE:13235)                                  
++ http://10.10.113.96/ContactUs (CODE:200|SIZE:13234)                                   
+==> DIRECTORY: http://10.10.113.96/content/                                             
+==> DIRECTORY: http://10.10.113.96/Content/                                             
+==> DIRECTORY: http://10.10.113.96/custom/                                              
+==> DIRECTORY: http://10.10.113.96/fonts/                                               
++ http://10.10.113.96/lpt1 (CODE:500|SIZE:1763)                                         
++ http://10.10.113.96/lpt2 (CODE:500|SIZE:1763)                                         
++ http://10.10.113.96/nul (CODE:500|SIZE:1763)                                          
++ http://10.10.113.96/prn (CODE:500|SIZE:1763)                                          
++ http://10.10.113.96/robots.txt (CODE:200|SIZE:303)                                    
+==> DIRECTORY: http://10.10.113.96/scripts/                                             
+==> DIRECTORY: http://10.10.113.96/Scripts/                                             
++ http://10.10.113.96/search (CODE:200|SIZE:8394)                                       
++ http://10.10.113.96/Search (CODE:200|SIZE:8394)                                       
++ http://10.10.113.96/search_result (CODE:200|SIZE:8401)                                
++ http://10.10.113.96/search_results (CODE:200|SIZE:8402)                               
++ http://10.10.113.96/searchnx (CODE:200|SIZE:8396)                                     
++ http://10.10.113.96/searchresults (CODE:200|SIZE:8401)                                
++ http://10.10.113.96/search-results (CODE:200|SIZE:8402)                               
++ http://10.10.113.96/searchurl (CODE:200|SIZE:8397)                                    
++ http://10.10.113.96/setup (CODE:302|SIZE:174)                                         
+                                                                                        
+-----------------
+END_TIME: Sun May 22 01:30:26 2022
+DOWNLOADED: 4612 - FOUND: 38
+

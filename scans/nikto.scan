@@ -1,0 +1,29 @@
+root@kali:~# nikto -host 10.10.113.96 -Format txt -o nikto.scan
+- Nikto v2.1.6
+---------------------------------------------------------------------------
++ Target IP:          10.10.113.96
++ Target Hostname:    10.10.113.96
++ Target Port:        80
++ Start Time:         2022-05-22 02:53:15 (GMT0)
+---------------------------------------------------------------------------
++ Server: Microsoft-IIS/8.5
++ Retrieved x-powered-by header: ASP.NET
++ The anti-clickjacking X-Frame-Options header is not present.
++ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ Uncommon header 'content-script-type' found, with contents: text/javascript
++ Uncommon header 'content-style-type' found, with contents: text/css
++ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
++ Entry '/search/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/search.aspx' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/archive/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/archive.aspx' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ "robots.txt" contains 6 entries which should be manually viewed.
++ Allowed HTTP Methods: GET, HEAD, OPTIONS, TRACE 
++ Uncommon header 'x-aspnetwebpages-version' found, with contents: 3.0
++ OSVDB-3092: /archive/: This might be interesting...
++ OSVDB-3092: /archives/: This might be interesting...
++ 8705 requests: 0 error(s) and 15 item(s) reported on remote host
++ End Time:           2022-05-22 02:53:43 (GMT0) (28 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+
