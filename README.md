@@ -1163,7 +1163,7 @@ Brute-forcing can be trying every combination of a password. Dictionary-attack's
 
 We need to find a login page to attack and identify what type of request the form is making to the webserver. Typically, web servers make two types of requests, a `GET` request which is used to request data from a webserver and a `POST` request which is used to send data to a server.
 
-You can check what request a form is making by right clicking on the login form, inspecting the element and then reading the value in the method field. You can also identify this if you are intercepting the traffic through BurpSuite (other HTTP methods can be found [here][https://www.w3schools.com/tags/ref_httpmethods.asp]).
+You can check what request a form is making by right clicking on the login form, inspecting the element and then reading the value in the method field. You can also identify this if you are intercepting the traffic through BurpSuite (other HTTP methods can be found [here](https://www.w3schools.com/tags/ref_httpmethods.asp)).
 
 *What request type is the Windows website login form using?* P[REDACTED]T
 
@@ -1199,3 +1199,20 @@ Below is a mini cheatsheet:
 | `hydra -l <username> -P <password list> $ip -V http-form-post '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log In&testcookie=1:S=Location'` | Craft a more specific request for Hydra to brute force. |
 
 
+## Task 3 -  Compromise the machine
+
+In this task, you will identify and execute a public exploit (from [exploit-db.com](http://www.exploit-db.com)) to get initial access on this Windows machine!
+
+Exploit-Database is a CVE (common vulnerability and exposures) archive of public exploits and corresponding vulnerable software, developed for the use of penetration testers and vulnerability researches. It is owned by Offensive Security (who are responsible for OSCP and Kali)
+
+**Answer the questions below**
+
+*Now you have logged into the website, are you able to identify the version of the BlogEngine?* 3[REDACTED]0
+*Use the [exploit database archive](http://www.exploit-db.com) to find an exploit to gain a reverse shell on this system. What is the CVE?* CVE-[REDACTED]
+*Using the public exploit, gain initial access to the server. Who is the webserver running as?* II[REDACTED]og
+
+
+## Task 4 - Windows Privilege Escalation
+
+
+## Task 5 - Privilege Escalation Without Metasploit
